@@ -24,4 +24,28 @@ $(document).ready(function () {
       });
     }
   });
-})
+
+  $(".btn-search").click(function() {
+    var dataform = {
+      id: $("#category").val()
+    };
+    if (dataform.id == "")
+    {
+      alert(I18n.t("categories.create.style_invalid"));
+    }
+    else
+    {
+      $.ajax("/search_categories",
+      {
+        type: "POST",
+        data: dataform,
+        success: function(result) {
+          $(".ajax-documents").html(result);
+        },
+        error: function (result) {
+          alert(I18n.t("categories.create.error"));
+        }
+      });
+    }
+  });
+});
