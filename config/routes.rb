@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :friends
   resources :documents
   resources :categories, only: :create
+  resources :history_downloads, only: :index
+  resources :favorites, only: :index
 end

@@ -46,6 +46,7 @@ en:
       setting: "Setting"
       friends: "Friends list"
       upload: "Upload"
+      history: "History Download"
     footer:
       contact: "Contact"
       about: "About"
@@ -192,3 +193,6 @@ en:
       not_found: "Not Found Documents"
     search_name:
       category: "Category"
+  search_documents:
+    search_category:
+      not_found: "Not Found Documents"

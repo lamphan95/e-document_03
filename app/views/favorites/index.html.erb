@@ -1,0 +1,17 @@
+<h3 class="text-center">History View Documents</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Name Document</th>
+      <th>Time</th>
+      <th>Favorite</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @favorites.any? %>
+      <%= render @favorites %>
+    <% end %>
+    <%= will_paginate @favorites %>
+  </tbody>
+</table>

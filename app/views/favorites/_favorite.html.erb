@@ -1,0 +1,10 @@
+<tr id="favorite-<%= favorite.id %>">
+  <td><%= favorite.id %></td>
+  <td><%= link_to favorite.document.name_document, document_path(favorite.id) %></td>
+  <td><%= favorite.created_at.localtime %></td>
+  <% if favorite.is_favorite == true %>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+  <% else %>
+    <td><span class="glyphicon glyphicon-remove"></span></td>
+  <% end %>
+</tr>

@@ -1,0 +1,5 @@
+<tr id="history-<%= history.id %>">
+  <td><%= history.id %></td>
+  <td><%= link_to history.document.name_document, document_path(history.id) %></td>
+  <td><%= history.created_at.localtime %></td>
+</tr>
