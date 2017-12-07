@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, except: %i(new create)
+  before_action :find_user, except: %i(new create index)
   before_action :logged_in_user, only: %i(edit update show)
   before_action :correct_user, only: %i(edit update)
 
@@ -25,12 +25,25 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes params_user
-      flash[:success] = t "users.update.success"
-      redirect_to @user
+    if (current_user.is_admin?) && (!current_user? @user)
+      if @user.update_attribute :is_admin, true
+        flash[:success] = "Upgrade Admin Success"
+      else
+        flash[:danger] = "Upgrade Admin Fails"
+      end
+      redirect_to request.referer || root_url
     else
-      render :edit
+      if @user.update_attributes params_user
+        flash[:success] = t "users.update.success"
+        redirect_to @user
+      else
+        render :edit
+      end
     end
+  end
+
+  def index
+    @users = User.status_admin(false).order_by_created_at.paginate page: params[:page]
   end
 
   private
@@ -47,6 +60,7 @@ class UsersController < ApplicationController
   end
 
   def correct_user
+    return if current_user.is_admin?
     @user = User.find_by id: params[:id]
     return if current_user? @user
     flash[:danger] = t "users.flash.not_correct_user"
