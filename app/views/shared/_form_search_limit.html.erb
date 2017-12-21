@@ -1,0 +1,6 @@
+<%= search_form_for @search, url: activities_path do |f|%>
+  <%= select_tag :limit, options_from_collection_for_select(Settings.show_limit,
+    :second, :second, selected: params[:limit] || Settings.show_limit.limit),
+    class: "show-limit" %>
+  <%= f.submit t(".search"), class: "btn btn-info btn-submit" %>
+<% end %>

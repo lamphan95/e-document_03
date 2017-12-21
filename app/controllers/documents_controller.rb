@@ -8,6 +8,7 @@ class DocumentsController < ApplicationController
   def show
     @comment = current_user.comments.build
     @favorite = current_user.favorites.find_by document_id: params[:id]
+    @document.create_activity :show, owner: current_user
     return if @document
     flash[:danger] = t "documents.show.fail"
     redirect_to root_url

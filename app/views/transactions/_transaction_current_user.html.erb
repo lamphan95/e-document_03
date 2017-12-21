@@ -1,0 +1,17 @@
+<tr id="transaction-<%= transaction.id %>">
+  <% if transaction.trackable.present? %>
+    <td><%= transaction.parameters[:coin] %></td>
+    <td><%= transaction.parameters[:cost] %></td>
+    <td><%= l transaction.created_at.localtime, format: :short %></td>
+    <% if transaction.trackable.is_confirm %>
+      <td><%= t ".success" %></td>
+    <% else %>
+      <td><%= t ".pending" %></td>
+    <% end %>
+  <% else %>
+    <td><%= transaction.parameters[:coin] %></td>
+    <td><%= transaction.parameters[:cost] %></td>
+    <td><%= l transaction.created_at.localtime, format: :short %></td>
+    <td><%= t ".fail" %></td>
+  <% end %>
+</tr>

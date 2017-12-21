@@ -91,6 +91,8 @@ en:
       upload_times: "Upload times"
       coins: "Coins"
       document_delete: "Document delete"
+    form_search_limit:
+      search: "Search"
   users:
     add_friend:
       send_request: "Add friend"
@@ -291,6 +293,13 @@ en:
     upload_success:
       title: "E-document"
       notice: "Your document has been uploaded"
+
+  activities:
+    index:
+      title: "History View"
+      name_doc: "Documents"
+      time: "Time"
+
   admin:
     not_admin: "You Aren't Admin"
     categories:

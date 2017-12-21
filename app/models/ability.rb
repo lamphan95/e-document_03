@@ -13,7 +13,7 @@ class Ability
       if user.is_admin?
         can :manage, :all
       else
-        can :read, [HistoryDownload, User, Favorite, Document, Comment]
+        can :read, [HistoryDownload, User, Favorite, Document, Comment, Transaction]
         can :create, [Category, Transaction, HistoryDownload,
           User, Favorite, Document, Comment], user_id: user.id
         can :destroy, [Favorite, Document, Comment], user_id: user.id

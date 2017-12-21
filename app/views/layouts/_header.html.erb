@@ -34,6 +34,8 @@
               <li><%= link_to t(".friends"), friends_path(user_id: current_user.id) %></li>
               <li><%= link_to t(".history"), history_downloads_path %></li>
               <li><%= link_to t(".favorites"), favorites_path %></li>
+              <li><%= link_to t(".history_view"), activities_path %></li>
+              <li><%= link_to t(".transactions"), transactions_path %></li>
               <% if can? :manage, :all %>
                 <li class="divider"></li>
                 <li><%= link_to t(".doc_report"), search_report_path %></li>

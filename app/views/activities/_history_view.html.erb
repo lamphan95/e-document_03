@@ -1,0 +1,5 @@
+<tr id="activity-<%= activity.id %>">
+  <td><%= link_to activity.trackable.name_document,
+    document_path(activity.trackable) %></td>
+  <td><%= l activity.created_at.localtime, format: :short %></td>
+</tr>

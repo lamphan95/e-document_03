@@ -39,6 +39,11 @@ gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-facebook"
 gem "social-share-button"
+gem "public_activity"
+gem "ransack"
+gem "kaminari"
+gem "bootstrap-kaminari-views"
+gem "config"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

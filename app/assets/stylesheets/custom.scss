@@ -422,3 +422,14 @@ aside {
 .alert-notice {
   @extend.alert-info;
 }
+
+/* search limit */
+
+.btn-submit {
+  display: none;
+}
+
+.show-limit {
+  width: 50px;
+  margin-left: 50px;
+}

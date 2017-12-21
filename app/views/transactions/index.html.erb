@@ -1,0 +1,18 @@
+<h3 class="text-center"><%= t ".title" %></h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= t ".coin" %></th>
+      <th><%= t ".cost" %></th>
+      <th><%= t ".time" %></th>
+      <th><%= t ".status" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @transactions.any? %>
+      <%= render partial: "transaction_current_user", collection: @transactions, as: :transaction %>
+      <%= paginate @transactions, theme: "twitter-bootstrap-3",
+        pagination_class: "pagination-sm" %>
+    <% end %>
+  </tbody>
+</table>

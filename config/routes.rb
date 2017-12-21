@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
   resources :categories, only: :create
   resources :history_downloads, only: %i(index create)
-  resources :transactions, only: :create
+  resources :transactions, only: %i(create index)
   resources :favorites, only: %i(index create destroy)
   namespace :admin do
     resources :categories, only: %i(index destroy update)
@@ -30,4 +30,5 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :transactions, only: %i(index update destroy)
   end
+  resources :activities, only: :index
 end
